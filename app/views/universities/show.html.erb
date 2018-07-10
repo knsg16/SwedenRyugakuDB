@@ -1,0 +1,52 @@
+<div class="center jumbotron" id="articles-background">
+  <%#= image_tag("uppsala-university-top.png"), id = "university-logo"%>
+
+  <h2>
+    <%= @univerity.name %>
+  </h2>
+  <ol class="breadcrumb">
+  	<li><a href="http://bootstrap3.cyberlab.info">ウプサラ大学</a></li>
+  	<li class="active"><a href="http://bootstrap3.cyberlab.info/components/">メイン</a></li>
+  </ol>
+  <div class = "main">
+    <div class = "category">
+      <ul class="list-group">
+        <li class="list-group-item"><a href="#">持物</a></li>
+        <li class="list-group-item"><a href="#">準備</a></li>
+        <li class="list-group-item"><a href="#">授業</a></li>
+        <li class="list-group-item"><a href="#">寮</a></li>
+        <li class="list-group-item"><a href="#">体験談</a></li>
+        <li class="list-group-item"><a href="#">文化</a></li>
+        <li class="list-group-item"><a href="#">生活</a></li>
+        <!--
+        カテゴリ実装の優先順位
+        1.持物、準備、授業、寮、体験談、文化、生活、
+        2.旅行、買物,イベント、交通
+      　-->
+
+      </ul>
+    </div>
+    <ul class = "articles">
+      <article class="list-group">
+        <a class="list-group-item ",href="#">
+          <h3>記事1-タイトル</h3>
+          <p>記事1-本文</p>
+        </a>
+      </article>
+      <article class="list-group">
+        <a class="list-group-item ",href="#">
+          <h3>記事2-タイトル</h3>
+          <p>記事2-本文</p>
+        </a>
+      </article>
+      <article class="list-group">
+        <a class="list-group-item ",href="#">
+          <h3>記事3-タイトル</h3>
+          <p>記事3-本文</p>
+        </a>
+      </article>
+    </ul>
+  </div>
+
+
+</div>
