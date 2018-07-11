@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 Uppsala:
+  id: 1
   name: ウプサラ大学
 
 Stockholm:
+  id: 2
   name: ストックホルム大学

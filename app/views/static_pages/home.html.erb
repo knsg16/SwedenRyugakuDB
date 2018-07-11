@@ -8,7 +8,9 @@
   </h3>
 
   <div style="text-align:center;">
-    <%= form_for @university do |f| %>
+    <%= form_for @university, url: "/universities" do |f| %>
+    <!--これで@Universityが新しいときはuniversities#createに
+   -->
       <%#= f.label :name %>
       <%= f.collection_select(:id, University.all, :id, :name, {:class => "form-control input-lg"}) %>
       <%= f.submit "移動", class: "btn btn-primary" %>

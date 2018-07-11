@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Catalog
+https://docs.google.com/spreadsheets/d/1niRYobk9FEVxgnIJQMEpuOfzHCx6Na194kJhgw8UkQs/edit?usp=sharing

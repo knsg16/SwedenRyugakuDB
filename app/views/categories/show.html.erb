@@ -1,12 +1,14 @@
 <div class="center jumbotron" id="articles-background">
-  <%#= image_tag("uppsala-university-top.png"), id = "university-logo"%>
-
   <h2>
     <%= @university.name %>
   </h2>
   <ol class="breadcrumb">
-  	<li><%= @university.name %></li>
-  	<li class="active">メイン</li>
+  	<li>
+      <%= link_to(@university.name, "/universities/#{@university.id}") %>
+    </li>
+    <li class="active">
+      <%= @category.category_name %>
+    </li>
   </ol>
   <div class = "main">
     <div class = "category">
@@ -45,6 +47,4 @@
       </article>
     </ul>
   </div>
-
-
 </div>
