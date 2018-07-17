@@ -2,6 +2,9 @@ class UniversitiesController < ApplicationController
   def show
     @university = University.find(params[:id])
     @categories = Category.all
+
+    @articles = Article.joins(:article_universities)
+                       .where("article_universities.university_id = ?", params[:id])
   end
 
   def new

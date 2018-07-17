@@ -24,25 +24,14 @@
       　-->
       </ul>
     </div>
-    <ul class = "articles">
-      <article class="list-group">
-        <a class="list-group-item ",href="#">
-          <h3>記事1-タイトル</h3>
-          <p>記事1-本文</p>
-        </a>
-      </article>
-      <article class="list-group">
-        <a class="list-group-item ",href="#">
-          <h3>記事2-タイトル</h3>
-          <p>記事2-本文</p>
-        </a>
-      </article>
-      <article class="list-group">
-        <a class="list-group-item ",href="#">
-          <h3>記事3-タイトル</h3>
-          <p>記事3-本文</p>
-        </a>
-      </article>
+    <ul class = "articles list-group">
+      <% @articles.each do |article| %>
+        <li class="list-group-item">
+            <span><%= article.subject%></span>
+            <br />
+            <span><%= article.content%></span>
+        </li>
+      <% end %>
     </ul>
   </div>
 
