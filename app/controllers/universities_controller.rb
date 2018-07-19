@@ -5,6 +5,7 @@ class UniversitiesController < ApplicationController
 
     @articles = Article.joins(:article_universities)
                        .where("article_universities.university_id = ?", params[:id])
+    #@articles = @university.articles
   end
 
   def new

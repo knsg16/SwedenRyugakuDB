@@ -67,6 +67,15 @@
         null,
         null
       ],
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/test/models/article_category_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/test/models/article_test.rb": [
         1,
         null,
@@ -148,6 +157,9 @@
       ],
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/models/category.rb": [
         1,
+        1,
+        1,
+        1,
         null
       ],
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/models/application_record.rb": [
@@ -158,6 +170,15 @@
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/models/article.rb": [
         1,
         1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        7,
+        null
+      ],
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/models/article_category.rb": [
         1,
         1,
         1,
@@ -232,6 +253,7 @@
         null,
         null,
         null,
+        null,
         1,
         null,
         null,
@@ -244,6 +266,6 @@
         null
       ]
     },
-    "timestamp": 1531837211
+    "timestamp": 1532012905
   }
 }

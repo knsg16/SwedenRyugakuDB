@@ -26,10 +26,12 @@
     </div>
     <ul class = "articles list-group">
       <% @articles.each do |article| %>
-        <li class="list-group-item">
-            <span><%= article.subject%></span>
+        <li class="list-group-item" id="article-<%= article.id %>" >
+            <span id="subject"><%= article.subject%></span>
             <br />
             <span><%= article.content%></span>
+            <br />
+            <%= link_to "もっと見る", article.url %>
         </li>
       <% end %>
     </ul>
