@@ -5,6 +5,7 @@ class UniversitiesController < ApplicationController
 
     @articles = Article.joins(:article_universities)
                        .where("article_universities.university_id = ?", params[:id])
+                       .paginate(page: params[:page], per_page: 5)
     #@articles = @university.articles
   end
 
