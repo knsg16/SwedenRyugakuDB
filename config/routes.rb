@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'active_record/base'
+  
   get 'universities/new'
   root 'static_pages#home'
   get  '/about',   to: 'static_pages#about'
