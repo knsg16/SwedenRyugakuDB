@@ -1,0 +1,22 @@
+<div class="center jumbotron" id="articles-background">
+    <table border="1" align="center" >
+      <tr>
+        <td><label>id</label></td>
+        <td><label>記事名</label></td>
+        <td><label>作成日</label></td>
+        <td><label>ブログ名</label></td>
+        <td><label>大学タグ</label></td>
+        <td><label>カテゴリータグ</label></td>
+      </tr>
+      <% @articles_for_admin.each do |a| %>
+        <tr>
+          <td><%= a.id %></td>
+          <td><%= a.subject %></td>
+          <td><%= a.created_at %></td>
+          <td><%= a.blog_id %></td>
+          <td><%= a.univ_name %></td>
+          <td><%= a.category_name %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>

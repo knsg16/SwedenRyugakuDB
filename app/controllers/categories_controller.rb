@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
     @articles = Article.joins(:article_categories, :article_universities)
                        .where("article_universities.university_id = ?", @university.id)
                        .where("article_categories.category_id = ?", @category.id)
+                       .order(created_at: :desc)
                        .paginate(page: params[:page], per_page: 5)
   end
 end
