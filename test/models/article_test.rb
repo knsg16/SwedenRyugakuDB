@@ -9,10 +9,6 @@ class ArticleTest < ActiveSupport::TestCase
                            blog_id: "2")
   end
 
-  test "should be present" do
-    assert @article.valid?
-  end
-
   test "subject should be present" do
     @article.subject = "   "
     assert_not @article.valid?

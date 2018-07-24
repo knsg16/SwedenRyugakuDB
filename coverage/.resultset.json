@@ -89,15 +89,12 @@
         null,
         1,
         1,
-        5,
+        4,
         null,
         null,
         null,
         null,
         null,
-        null,
-        1,
-        1,
         null,
         null,
         1,
@@ -122,6 +119,15 @@
         null
       ],
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/test/models/article_university_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/test/models/blog_test.rb": [
         1,
         null,
         1,
@@ -175,7 +181,13 @@
         1,
         null
       ],
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/models/blog.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/models/article.rb": [
+        1,
         1,
         1,
         1,
@@ -207,10 +219,16 @@
         1,
         null
       ],
-      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/static_pages_controller.rb": [
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/universities_controller.rb": [
         1,
         1,
-        2,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -218,6 +236,10 @@
         null,
         null,
         1,
+        0,
+        null,
+        null,
+        null,
         null,
         null
       ],
@@ -256,16 +278,10 @@
         1,
         null
       ],
-      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/universities_controller.rb": [
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/static_pages_controller.rb": [
         1,
         1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
+        2,
         null,
         null,
         null,
@@ -273,14 +289,10 @@
         null,
         null,
         1,
-        0,
-        null,
-        null,
-        null,
         null,
         null
       ]
     },
-    "timestamp": 1532333438
+    "timestamp": 1532398512
   }
 }

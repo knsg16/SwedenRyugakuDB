@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blog_name: MyString
+  url: MyString
+  auto_generated: false
+
+two:
+  blog_name: MyString
+  url: MyString
+  auto_generated: false

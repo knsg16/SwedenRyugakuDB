@@ -1,4 +1,26 @@
 <div class="center jumbotron" id="articles-background">
+<h2>アドミン</h2>
+<ol class="breadcrumb">
+  <li>記事一覧</li>
+</ol>
+  <div class="admin" style="text-align:right;">
+    <select id="univ" >
+    　<option value="0">すべての大学</option>
+  　　<option value="1">ウプサラ大学</option>
+  　　<option value="2">ストックホルム大学</option>
+　  </select>
+    <select id="category" >
+      <option value="0">すべてのカテゴリ</option>
+    　<option value="1">持物</option>
+    　<option value="2">準備</option>
+      <option value="3">授業</option>
+      <option value="4">寮</option>
+      <option value="5">体験談</option>
+      <option value="6">文化</option>
+      <option value="7">生活</option>
+    </select>
+    <input type="checkbox" name="sex" value="male">タグ無し
+
     <table border="1" align="center" >
       <tr>
         <td><label>id</label></td>
@@ -13,10 +35,12 @@
           <td><%= a.id %></td>
           <td><%= a.subject %></td>
           <td><%= a.created_at %></td>
-          <td><%= a.blog_id %></td>
+          <td><%= a.blog_name %></td>
           <td><%= a.univ_name %></td>
           <td><%= a.category_name %></td>
         </tr>
       <% end %>
     </table>
+    <%= will_paginate @articles_for_admin  %>
+  </div>
 </div>
