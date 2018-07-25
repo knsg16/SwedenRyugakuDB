@@ -4,42 +4,35 @@
   <li>記事一覧</li>
 </ol>
   <div class="admin" style="text-align:right;">
-    <select id="univ" >
-    　<option value="0">すべての大学</option>
-  　　<option value="1">ウプサラ大学</option>
-  　　<option value="2">ストックホルム大学</option>
-　  </select>
-    <select id="category" >
-      <option value="0">すべてのカテゴリ</option>
-    　<option value="1">持物</option>
-    　<option value="2">準備</option>
-      <option value="3">授業</option>
-      <option value="4">寮</option>
-      <option value="5">体験談</option>
-      <option value="6">文化</option>
-      <option value="7">生活</option>
-    </select>
-    <input type="checkbox" name="sex" value="male">タグ無し
-
-    <table border="1" align="center" >
-      <tr>
-        <td><label>id</label></td>
-        <td><label>記事名</label></td>
-        <td><label>作成日</label></td>
-        <td><label>ブログ名</label></td>
-        <td><label>大学タグ</label></td>
-        <td><label>カテゴリータグ</label></td>
-      </tr>
-      <% @articles_for_admin.each do |a| %>
+    <%= form_tag(article_index_path, method: "get") do |f| %>
+    <%= select_tag :university, options_for_select(Article.universities), include_blank: false %>
+    <%= select_tag :category, options_for_select(Article.categories), include_blank: false %>
+    <%= submit_tag "検索" , class: "btn btn-primary" %>
+    <% end %>
+    <table border="1" align="center" class="table table-bordered" >
+      <thead>
         <tr>
-          <td><%= a.id %></td>
-          <td><%= a.subject %></td>
-          <td><%= a.created_at %></td>
-          <td><%= a.blog_name %></td>
-          <td><%= a.univ_name %></td>
-          <td><%= a.category_name %></td>
+          <td><label>id</label></td>
+          <td><label>記事名</label></td>
+          <td><label>作成日</label></td>
+          <td><label>ブログ名</label></td>
+          <td><label>大学タグ</label></td>
+          <td><label>カテゴリータグ</label></td>
         </tr>
-      <% end %>
+      </thead>
+      <tbody>
+        <% @articles_for_admin.each do |a| %>
+          <tr>
+            <td><%= a.id %></td>
+            <td><%= truncate(a.subject, length: 20)  %></td>
+            <td><%= a.created_at.strftime('%Y年%m月%d日') %></td>
+            <td><%= truncate(a.blog_name, length: 20) %></td>
+            <td><%= a.univ_name %></td>
+            <td><%= a.category_name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
     </table>
     <%= will_paginate @articles_for_admin  %>
   </div>
