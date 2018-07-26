@@ -229,10 +229,16 @@
         1,
         null
       ],
-      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/static_pages_controller.rb": [
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/universities_controller.rb": [
         1,
         1,
-        2,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -240,6 +246,14 @@
         null,
         null,
         1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
         null,
         null
       ],
@@ -278,16 +292,10 @@
         1,
         null
       ],
-      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/universities_controller.rb": [
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/static_pages_controller.rb": [
         1,
         1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
+        2,
         null,
         null,
         null,
@@ -295,14 +303,10 @@
         null,
         null,
         1,
-        0,
-        null,
-        null,
-        null,
         null,
         null
       ]
     },
-    "timestamp": 1532497912
+    "timestamp": 1532571898
   }
 }

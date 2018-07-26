@@ -19,4 +19,8 @@ class UniversitiesController < ApplicationController
     #これは[:パラメータA]の配列の[:パラメータB]をもってきてる
   end
 
+  def index
+    @universities = University.all
+  end
+
 end

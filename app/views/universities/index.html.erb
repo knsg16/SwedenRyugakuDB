@@ -1,0 +1,14 @@
+<h2>大学一覧</h2>
+<ol class="breadcrumb">
+  <li><%= link_to "メイン",        root_path %></li>
+	<li class="active">大学一覧</li>
+</ol>
+<% @universities.each do |univ| %>
+<ul class = "list-group">
+  <%= link_to university_path(univ.id) do %>
+    <li class="list-group-item" id="univ-<%= univ.id %>" >
+      <%= univ.name %>
+    </li>
+  <% end %>
+</ul>
+<% end %>

@@ -32,4 +32,12 @@ class ArticleController < ApplicationController
                                   .paginate(page: params[:page], per_page: 10)
    end
   end
+
+  def show
+    @article_for_admin = Article.left_joins(:categories, :universities, :blog)
+                                 .select("articles.*, categories.category_name,
+                                          (universities.name) AS univ_name,
+                                          blogs.blog_name")
+                                 .where("articles.id = ?", params[:id])
+  end
 end
