@@ -2,7 +2,7 @@
 <h2>アドミン</h2>
 <ol class="breadcrumb">
   <li>アドミン</li>
-  <li>記事一覧</li>
+  <li>ブログ一覧</li>
 </ol>
   <div class="admin" style="text-align:right;">
     <%= form_tag(article_index_path, method: "get") do |f| %>
@@ -14,27 +14,25 @@
       <thead>
         <tr>
           <td><label>id</label></td>
-          <td><label>記事名</label></td>
-          <td><label>作成日</label></td>
           <td><label>ブログ名</label></td>
-          <td><label>大学タグ</label></td>
-          <td><label>カテゴリータグ</label></td>
+          <td><label>url</label></td>
+          <td><label>自動連携</label></td>
+          <td><label>登録日</label></td>
         </tr>
       </thead>
       <tbody>
-        <% @articles_for_admin.each do |a| %>
+        <% @blogs.each do |blog| %>
           <tr>
-            <td><%= a.id %></td>
-            <td><%= link_to(truncate(a.subject, length: 20), article_path(id: a.id), method:"GET", )  %></td>
-            <td><%= a.created_at.strftime('%Y年%m月%d日') %></td>
-            <td><%= truncate(a.blog_name, length: 20) %></td>
-            <td><%= a.univ_name %></td>
-            <td><%= a.category_name %></td>
+            <td><%= blog.id %></td>
+            <td><%= link_to(truncate(blog.blog_name, length: 20), blog_path(id: blog.id), method:"GET", )  %></td>
+            <td><%= blog.url %></td>
+            <td><%= blog.auto_generated %></td>
+            <td><%= blog.created_at.strftime('%Y年%m月%d日') %></td>
           </tr>
         <% end %>
       </tbody>
 
     </table>
-    <%= will_paginate @articles_for_admin  %>
+    <%= will_paginate @blogs  %>
   </div>
 </div>

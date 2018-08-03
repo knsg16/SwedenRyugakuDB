@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get  '/contact', to: 'static_pages#contact'
 
   resources :article
+  resources :blog
+  
 
   resources :universities do
     resources :categories
