@@ -1,6 +1,15 @@
 {
   "MiniTest": {
     "coverage": {
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/test/controllers/blog_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/test/controllers/categories_controller_test.rb": [
         1,
         null,
@@ -232,11 +241,28 @@
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/controllers/static_pages_controller.rb": [
         1,
         1,
+        null,
+        1,
+        1,
         2,
         null,
         null,
+        1,
+        1,
+        1,
         null,
         1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        10,
+        10,
+        null,
         null,
         null,
         1,
@@ -263,6 +289,10 @@
         null
       ],
       "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/helpers/article_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/kanasugiyuuki/environment/sweden_ryugaku_db/app/helpers/blog_helper.rb": [
         1,
         null
       ],
@@ -307,6 +337,6 @@
         null
       ]
     },
-    "timestamp": 1532584350
+    "timestamp": 1533471706
   }
 }

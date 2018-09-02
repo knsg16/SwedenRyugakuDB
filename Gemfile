@@ -32,6 +32,9 @@ gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'nokogiri'
 gem 'jquery-rails'
+gem 'whenever', :require => false
+gem 'executables'
+gem 'bootstrap_form'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

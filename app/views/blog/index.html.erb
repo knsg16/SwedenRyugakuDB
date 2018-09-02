@@ -1,38 +1,41 @@
 <div class="center jumbotron" id="articles-background">
-<h2>アドミン</h2>
-<ol class="breadcrumb">
-  <li>アドミン</li>
-  <li>ブログ一覧</li>
-</ol>
-  <div class="admin" style="text-align:right;">
-    <%= form_tag(article_index_path, method: "get") do |f| %>
-    <%= select_tag :university, options_for_select(Article.universities), include_blank: false %>
-    <%= select_tag :category, options_for_select(Article.categories), include_blank: false %>
-    <%= submit_tag "検索" , class: "btn btn-primary" %>
-    <% end %>
-    <table border="1" align="center" class="table table-bordered table-hover" >
-      <thead>
-        <tr>
-          <td><label>id</label></td>
-          <td><label>ブログ名</label></td>
-          <td><label>url</label></td>
-          <td><label>自動連携</label></td>
-          <td><label>登録日</label></td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @blogs.each do |blog| %>
+  <h2>アドミン</h2>
+  <ol class="breadcrumb">
+    <li>アドミン</li>
+    <li>ブログ一覧</li>
+  </ol>
+    <div class="admin" style="text-align:right;">
+      <%= form_tag(article_index_path, method: "get") do |f| %>
+        <%= select_tag :university, options_for_select(Article.universities), include_blank: false %>
+        <%= select_tag :category, options_for_select(Article.categories), include_blank: false %>
+        <%= submit_tag "検索" , class: "btn btn-primary" %>
+      <% end %>
+      <table border="1" align="center" class="table table-bordered table-hover" >
+        <thead>
           <tr>
-            <td><%= blog.id %></td>
-            <td><%= link_to(truncate(blog.blog_name, length: 20), blog_path(id: blog.id), method:"GET", )  %></td>
-            <td><%= blog.url %></td>
-            <td><%= blog.auto_generated %></td>
-            <td><%= blog.created_at.strftime('%Y年%m月%d日') %></td>
+            <td><label>id</label></td>
+            <td><label>ブログ名</label></td>
+            <td><label>url</label></td>
+            <td><label>自動連携</label></td>
+            <td><label>登録日</label></td>
           </tr>
-        <% end %>
-      </tbody>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog| %>
+            <tr>
+              <td><%= blog.id %></td>
+              <td><%= link_to(truncate(blog.blog_name, length: 20), blog_index_path(id: blog.id), method:"GET" )  %></td>
+              <td><%= blog.url %></td>
+              <td><%= blog.auto_generated %></td>
+              <td><%= blog.created_at.strftime('%Y年%m月%d日') %></td>
+            </tr>
+          <% end %>
+        </tbody>
 
-    </table>
-    <%= will_paginate @blogs  %>
-  </div>
+      </table>
+      <%= will_paginate @blogs  %>
+      <%= form_tag(new_blog_path, method: "get") do |f| %>
+        <%= submit_tag "新規ブログ登録" , class: "btn btn-primary" %>
+      <% end %>
+    </div>
 </div>
