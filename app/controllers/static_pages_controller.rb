@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'byebug'
 
 class StaticPagesController < ApplicationController
   def home
@@ -7,23 +8,64 @@ class StaticPagesController < ApplicationController
   end
 
   def about
-    @about = []
-    url = 'https://qiita.com/search?page=2&q=ruby'
+    @links = []
+    next_url = "peperoy/entrylist.html"
+    #while true
+      current_page = "https://ameblo.jp/" + next_url
+      charset = nil
 
+      html = open(current_page) do |f|
+          charset = f.charset
+          f.read
+      end
+
+      doc = Nokogiri::HTML.parse(html, nil, charset)
+      doc.xpath('//div[@data-uranus-component="entryItem"]').each do |node|
+        url = node.css('h2 a')[0][:href]
+        @links.push(url)
+        p url
+      end
+
+      #paginationで次が無くなったらbreak
+      #break if doc.at('.skin-paginationNexts li a')[:class].include?("is-disabled").present?
+      next_url = doc.at('.skin-paginationNexts li a')[:href]
+      p next_url
+      blog_id = 9
+    #end
+    @links.each do |link|
+      get_blog(link, blog_id)
+    end
+  end
+
+  def get_blog(link, blog_id)
+    current_page = "https://ameblo.jp/" + link
     charset = nil
 
-    html = open(url) do |f|
+    html = open(current_page) do |f|
         charset = f.charset
         f.read
     end
 
     doc = Nokogiri::HTML.parse(html, nil, charset)
-    doc.xpath('//h1[@class="searchResult_itemTitle"]').each do |node|
-      @about.push(node.css('a').inner_text)
-      p node.css('a').inner_text
-    end
+
+    #ここから各記事の画像とか本文とか取ってきて保存する。
+    subject = doc.at('.skin-entryTitle').inner_text
+    picture = doc.search('.skin-entryBody div a')[0].attribute("href").value
+    p subject
+    p picture
+
+    ## TODO: saveできないからできるように。blog_idの取っくる方法。
+    article = Article.where(subject: subject).first_or_initialize
+    article.picture = picture
+    article.content = ""
+    article.url = current_page
+    article.blog_id = blog_id
+    p article
+    article.save
+
   end
 
   def contact
   end
+
 end

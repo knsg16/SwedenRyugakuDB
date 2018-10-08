@@ -7,7 +7,11 @@
 <p>
   This is the about page for the
   <a href="#">Sweden Ryugaku DB</a>
-  
+
   <br />
-  <%= @about %>
+  <ul>
+    <% @links.each do |link|  %>
+    <li><%= link %><br /></li>
+    <% end  %>
+  </ul>
 </p>

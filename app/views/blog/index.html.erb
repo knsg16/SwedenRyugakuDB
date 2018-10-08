@@ -24,7 +24,7 @@
           <% @blogs.each do |blog| %>
             <tr>
               <td><%= blog.id %></td>
-              <td><%= link_to(truncate(blog.blog_name, length: 20), blog_index_path(id: blog.id), method:"GET" )  %></td>
+              <td><%= link_to(truncate(blog.blog_name, length: 20), blog.url, method:"GET" )  %></td>
               <td><%= blog.url %></td>
               <td><%= blog.auto_generated %></td>
               <td><%= blog.created_at.strftime('%Y年%m月%d日') %></td>
