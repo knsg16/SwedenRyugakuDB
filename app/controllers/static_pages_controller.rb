@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
   def about
     @links = []
     next_url = "peperoy/entrylist.html"
-    #while true
+    while true
       current_page = "https://ameblo.jp/" + next_url
       charset = nil
 
@@ -27,11 +27,11 @@ class StaticPagesController < ApplicationController
       end
 
       #paginationで次が無くなったらbreak
-      #break if doc.at('.skin-paginationNexts li a')[:class].include?("is-disabled").present?
+      break if doc.at('.skin-paginationNexts li a')[:class].include?("is-disabled").present?
       next_url = doc.at('.skin-paginationNexts li a')[:href]
       p next_url
       blog_id = 9
-    #end
+    end
     @links.each do |link|
       get_blog(link, blog_id)
     end
@@ -50,19 +50,18 @@ class StaticPagesController < ApplicationController
 
     #ここから各記事の画像とか本文とか取ってきて保存する。
     subject = doc.at('.skin-entryTitle').inner_text
-    picture = doc.search('.skin-entryBody div a')[0].attribute("href").value
+    picture = doc.search('.skin-entryBody div a')[0].attribute("href").value if doc.search('.skin-entryBody div a')[0].present?
     p subject
     p picture
 
     ## TODO: saveできないからできるように。blog_idの取っくる方法。
-    article = Article.where(subject: subject).first_or_initialize
-    article.picture = picture
-    article.content = ""
-    article.url = current_page
-    article.blog_id = blog_id
-    p article
-    article.save
-
+    Article.where(subject: subject).first_or_create do |article|
+      article.picture = picture
+      article.content = ""
+      article.url = current_page
+      article.blog_id = blog_id
+      p article
+    end
   end
 
   def contact
