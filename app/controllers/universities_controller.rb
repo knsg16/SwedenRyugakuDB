@@ -1,13 +1,12 @@
 class UniversitiesController < ApplicationController
   def show
     @university = University.find(params[:id])
-    @categories = Category.all
+    @categories = Category.all.where.not(id: 1)
 
     @articles = Article.joins(:article_universities)
                        .where("article_universities.university_id = ?", params[:id])
                        .order(created_at: :desc)
                        .paginate(page: params[:page], per_page: 5)
-    #@articles = @university.articles
   end
 
   def new
@@ -20,7 +19,7 @@ class UniversitiesController < ApplicationController
   end
 
   def index
-    @universities = University.all
+    @universities = University.all.where.not(id: 1)
   end
 
 end
