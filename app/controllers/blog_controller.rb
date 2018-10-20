@@ -1,6 +1,6 @@
 class BlogController < ApplicationController
   def index
-    @blogs = Blog.all.paginate(page: params[:page], per_page: 10)
+    @blogs = Blog.all.paginate(page: params[:page], per_page: 20)
   end
 
   def new
@@ -16,8 +16,8 @@ class BlogController < ApplicationController
 
   def scraping(blog_id)
     @links = []
-    next_url = Blog.find(blog_id).url
-    #next_url = "peperoy/entrylist.html"
+    #next_url = Blog.find(blog_id).url
+    next_url = "yurip783/entrylist.html"
     while true
       current_page = "https://ameblo.jp/" + next_url
       charset = nil

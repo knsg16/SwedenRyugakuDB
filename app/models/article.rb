@@ -8,7 +8,7 @@ class Article < ApplicationRecord
   accepts_nested_attributes_for :article_universities, allow_destroy: true
   accepts_nested_attributes_for :article_categories, allow_destroy: true
 
-  enum university: { すべての大学:0, ウプサラ大学: 3, ストックホルム大学: 2, 大学タグ無し: 1}
+  enum university: { すべての大学:0, ウプサラ大学: 3, ストックホルム大学: 2, リンショーピン大学: 4, 大学タグ無し: 1}
   enum category: { すべてのカテゴリー:0, 持物:8, 準備:2, 授業:3,
                    寮:4, 体験談:5, 文化:6, 生活:7, カテゴリータグ無し: 1}
 

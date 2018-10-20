@@ -2,7 +2,7 @@ class ArticleController < ApplicationController
   def index
    @article = Article.new
    @articles_for_admin = Article.join_all
-                                .paginate(page: params[:page], per_page: 10)
+                                .paginate(page: params[:page], per_page: 15)
 
   # TODO: Formクラスを作成してそっちに役割をもたせる。
    university = params[:university].to_i
