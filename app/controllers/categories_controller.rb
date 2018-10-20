@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def show
     @category = Category.find_by(id: params[:id])
-    @categories = Category.all
+    @categories = Category.all.where.not(id: 1)
     @university = University.find_by(id: params[:university_id])
     @articles = Article.joins(:article_categories, :article_universities)
                        .where("article_universities.university_id = ?", @university.id)
