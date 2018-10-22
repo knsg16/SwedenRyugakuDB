@@ -16,8 +16,8 @@ class BlogController < ApplicationController
 
   def scraping(blog_id)
     @links = []
-    #next_url = Blog.find(blog_id).url
-    next_url = "yurip783/entrylist.html"
+    next_url = Blog.find(blog_id).url
+    #next_url = "yurip783/entrylist.html"
     while true
       current_page = "https://ameblo.jp/" + next_url
       charset = nil
@@ -57,21 +57,30 @@ class BlogController < ApplicationController
 
     #ここから各記事の画像とか本文とか取ってきて保存する。
     subject = doc.at('.skin-entryTitle').inner_text
-    picture = doc.search('.skin-entryBody div a')[0].attribute("href").value if doc.search('.skin-entryBody div a')[0].present?
-    p subject
-    p picture
-
-    Article.where(subject: subject).first_or_create do |article|
-      article.picture = picture
-      article.content = ""
-      article.url = current_page
-      article.blog_id = blog_id
-      p article
+    picture = doc.search('.skin-entryBody p a')[0].attribute("href").value if doc.search('.skin-entryBody p a')[0].present?
+    # content1 = doc.search('.skin-entryBody p')[0].inner_text
+    result = ""
+    contents = doc.search('.skin-entryBody p')
+    contents.each do |content|
+      result += content.inner_text.delete("\n")
+      break if result.length > 500
     end
 
-    new_article_id = Article.last.id
-    ArticleUniversity.create(article_id: new_article_id, university_id: 1)
-    ArticleCategory.create(article_id: new_article_id, category_id: 1)
+    p subject
+    p picture
+    p result
+
+    Article.where(subject: subject).first_or_initialize do |article|
+      article.picture = picture
+      article.content = result
+      article.url = current_page
+      article.blog_id = blog_id
+      if article.save
+        new_article_id = Article.last.id
+        ArticleUniversity.create(article_id: new_article_id, university_id: 1)
+        ArticleCategory.create(article_id: new_article_id, category_id: 1)
+      end
+    end
 
   end
 
