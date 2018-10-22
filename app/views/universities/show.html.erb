@@ -29,7 +29,7 @@
         <li class="list-group-item" id="article-<%= article.id %>" >
             <span id="subject"><%= article.subject%></span>
             <br />
-            <span><%= article.content%></span>
+            <span><%= truncate(article.content, length: 200)%></span>
             <br />
             <%= link_to "もっと見る", article.url, target: "_blank" %>
         </li>
