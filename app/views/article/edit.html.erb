@@ -8,7 +8,7 @@
     <%= bootstrap_form_for @article do |f| %>
  	    <div class="panel-body"><%= f.text_field :id %></div>
       <div class="panel-body"><%= f.text_field :subject %></div>
-      <div class="panel-body"><%= f.text_field :content %></div>
+      <div class="panel-body"><%= f.text_area :content, rows: "10"  %></div>
       <div class="panel-body"><%= f.text_field :url %></div>
       <div class="panel-body">
         <%= f.fields_for :article_universities do |au| %>
