@@ -104,26 +104,17 @@ footer ul li {
 
 .articles {
   width: 50%;
-  height: 250px;
+  height: auto;
   text-align: center;
   margin: auto;
 }
 
 /* container */
-#articles-background{
-  margin: auto;
-  height: 1000px;
-}
-
-.main {
-  height: 500px;
-}
 .pagination{
   display: flex;
  justify-content: center;
  align-items: center;
 }
-
 /* miscellaneous */
 
 .debug_dump {
