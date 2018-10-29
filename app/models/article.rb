@@ -1,9 +1,9 @@
 class Article < ApplicationRecord
   validates :subject, presence: true, length: {maximum: 50}
   belongs_to :blog
-  has_many :article_universities
+  has_many :article_universities, dependent: :destroy
   has_many :universities, through: :article_universities
-  has_many :article_categories
+  has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
   accepts_nested_attributes_for :article_universities, allow_destroy: true
   accepts_nested_attributes_for :article_categories, allow_destroy: true

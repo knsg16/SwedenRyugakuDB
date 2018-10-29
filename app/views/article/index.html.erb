@@ -1,7 +1,8 @@
-<div class="center jumbotron" id="articles-background">
-<h2>アドミン</h2>
+<div class="container">
+  <div class="center jumbotron">
+<h2>管理ページ</h2>
 <ol class="breadcrumb">
-  <li>アドミン</li>
+  <li>管理ページ</li>
   <li>記事一覧</li>
 </ol>
   <div class="admin" style="text-align:right;">
@@ -31,7 +32,7 @@
             <td><%= truncate(a.blog_name, length: 20) %></td>
             <td><%= a.univ_name %></td>
             <td><%= a.category_name %></td>
-            <td><%= link_to("編集", edit_article_path(a.id))  %></td>
+            <td><%= link_to("編集", edit_article_path(a.id),  class: 'btn-sm btn-warning')  %></td>
           </tr>
         <% end %>
       </tbody>
@@ -39,4 +40,6 @@
     </table>
     <%= will_paginate @articles_for_admin  %>
   </div>
+</div>
+
 </div>

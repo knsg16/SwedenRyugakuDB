@@ -1,19 +1,22 @@
-<div class="center jumbotron" id="articles-background">
-  <h2>アドミン</h2>
-  <ol class="breadcrumb">
-    <li>アドミン</li>
-    <li><%= link_to "ブログ一覧", blog_index_path %></li>
-    <li>新規ブログ登録</li>
-  </ol>
-  <div class="admin" >
-    <div class="form">
-      <%= bootstrap_form_for @blog ,url: { action: :create } do |f| %>
-        <%= f.text_field :blog_name, placeholder: "ブログの名前を入力してください。" %>
-        <%= f.text_field :url, placeholder: "ブログのurlを入力してください。" %>
-        <%= f.check_box :auto_generated %>
+<div class="container">
+  <div class="center jumbotron">
+    <h2>アドミン</h2>
+    <ol class="breadcrumb">
+      <li>アドミン</li>
+      <li><%= link_to "ブログ一覧", blog_index_path %></li>
+      <li>新規ブログ登録</li>
+    </ol>
+    <div class="admin" >
+      <div class="form">
+        <%= bootstrap_form_for @blog ,url: { action: :create } do |f| %>
+          <%= f.text_field :blog_name, placeholder: "ブログの名前を入力してください。" %>
+          <%= f.text_field :url, placeholder: "ブログのurlを入力してください。" %>
+          <%= f.check_box :auto_generated %>
 
-        <%= submit_tag "登録" , class: "btn btn-primary"%>
-      <% end %>
+          <%= submit_tag "登録" , class: "btn btn-primary"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+

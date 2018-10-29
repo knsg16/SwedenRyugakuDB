@@ -38,6 +38,12 @@ class ArticleController < ApplicationController
     redirect_to article_index_path(page: session[:last_page])
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy!
+    redirect_to article_index_path(page: session[:last_page])
+  end
+
   private
   def update_params
     params.require(:article).permit(:id, :subject, :content, :url,
