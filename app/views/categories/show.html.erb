@@ -29,11 +29,20 @@
     <ul class = "articles list-group">
       <% @articles.each do |article| %>
         <li class="list-group-item" id="article-<%= article.id %>" >
+          <div class="left-box">
+            <% if article.picture.present? %>
+              <%= image_tag article.picture %>
+            <% else %>
+              <%= image_tag("sweden.jpg") %>
+            <% end %>
+          </div>
+          <div class="right-box">
             <span id="subject"><%= article.subject%></span>
-            <br />
-            <span><%= article.content%></span>
-            <br />
-            <%= link_to "もっと見る", article.url %>
+            </br>
+            <span><%= truncate(article.content, length: 150)%></span>
+            </br>
+            <%= link_to "もっと見る", article.url, target: "_blank" %>
+          </div>
         </li>
       <% end %>
     </ul>
