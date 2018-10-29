@@ -27,11 +27,16 @@
     <ul class = "articles list-group">
       <% @articles.each do |article| %>
         <li class="list-group-item" id="article-<%= article.id %>" >
+          <div class="left-box">
+            <%= image_tag article.picture %>
+          </div>
+          <div class="right-box">
             <span id="subject"><%= article.subject%></span>
-            <br />
-            <span><%= truncate(article.content, length: 200)%></span>
-            <br />
+            </br>
+            <span><%= truncate(article.content, length: 150)%></span>
+            </br>
             <%= link_to "もっと見る", article.url, target: "_blank" %>
+          </div>
         </li>
       <% end %>
     </ul>
