@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
 
-  resources :article
+  resources :article do
+    member do
+      get 'delete'
+    end
+  end
+  
   resources :blog, only: [:index, :new, :create]
 
 

@@ -1,7 +1,7 @@
 class ArticleController < ApplicationController
   def index
    @article = Article.new
-   @articles_for_admin = Article.join_all
+   @articles_for_admin = Article.join_all.where(is_delete: 0)
                                 .paginate(page: params[:page], per_page: 15)
 
   # TODO: Formクラスを作成してそっちに役割をもたせる。
@@ -38,9 +38,10 @@ class ArticleController < ApplicationController
     redirect_to article_index_path(page: session[:last_page])
   end
 
-  def destroy
-    @article = Article.find(params[:id])
-    @article.destroy!
+  def delete
+    article = Article.find(params[:id])
+    article.is_delete = 1
+    article.save
     redirect_to article_index_path(page: session[:last_page])
   end
 
