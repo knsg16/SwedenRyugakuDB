@@ -19,12 +19,13 @@ class BlogController < ApplicationController
 
   def scraping(blog_id)
     @links = []
-    next_url = Blog.find(blog_id).url
-    #next_url = "yurip783/entrylist.html"
+    url = Blog.find(blog_id).url
+    #https://ameblo.jp/以下のURLを取得している
+    str_list = url.split("/")
+    next_url = [str_list[3], str_list[4]].join("/")
     while true
       current_page = "https://ameblo.jp/" + next_url
       charset = nil
-
       html = open(current_page) do |f|
           charset = f.charset
           f.read
@@ -38,7 +39,8 @@ class BlogController < ApplicationController
       end
 
       #paginationで次が無くなったらbreak
-      break if doc.at('.skin-paginationNexts li a')[:class].include?("is-disabled").present?
+      break if doc.at('skin-pagination').nil?
+      break if doc.at('.skin-paginationNexts li a')[:class]&.include?("is-disabled")&.present?
       next_url = doc.at('.skin-paginationNexts li a')[:href]
       p next_url
     end
@@ -68,11 +70,13 @@ class BlogController < ApplicationController
       result += content.inner_text.delete("\n")
       break if result.length > 500
     end
+    print_log(subject, picture, result)
+    save_article(subject, picture, result, current_page)
+  end
 
-    p subject
-    p picture
-    p result
+  private
 
+  def save_article(subject, picture, result, current_page)
     Article.where(subject: subject).first_or_initialize do |article|
       article.picture = picture
       article.content = result
@@ -84,11 +88,16 @@ class BlogController < ApplicationController
         ArticleCategory.create(article_id: new_article_id, category_id: 1)
       end
     end
-
   end
 
-  private
+  def print_log(subject, picture, result)
+    p subject
+    p picture
+    p result
+  end
+
   def create_params
     params.require(:blog).permit(:blog_name, :url, :auto_generated)
   end
+
 end
