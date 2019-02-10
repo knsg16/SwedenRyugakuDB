@@ -39,7 +39,7 @@ class ArticleController < ApplicationController
   end
 
   def delete
-    article = Article.find(params[:id])
+      article = Article.find(params[:id])
     article.is_delete = 1
     article.save
     redirect_to article_index_path(page: session[:last_page])
