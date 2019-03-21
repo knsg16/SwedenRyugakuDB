@@ -6,7 +6,7 @@ class UniversitiesController < ApplicationController
     @articles = Article.joins(:article_universities)
                        .where("article_universities.university_id = ?", params[:id])
                        .order(created_at: :desc)
-                       .paginate(page: params[:page], per_page: 5)
+                       .paginate(page: params[:page], per_page: 6)
   end
 
   def new

@@ -1,14 +1,40 @@
-<h2>大学一覧</h2>
-<ol class="breadcrumb">
-  <li><%= link_to "メイン",        root_path %></li>
-	<li class="active">大学一覧</li>
-</ol>
-<% @universities.each do |univ| %>
-<ul class = "list-group">
-  <%= link_to university_path(univ.id) do %>
-    <li class="list-group-item" id="univ-<%= univ.id %>" >
-      <%= univ.name %>
-    </li>
-  <% end %>
-</ul>
-<% end %>
+<div class="container">
+  <br>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "メイン", root_path %></li>
+      <li class="active breadcrumb-item" aria-current="page">大学一覧</li>
+    </ol>
+  </nav>
+  <div class="row">
+    <% @universities.each do |university| %>
+      <div class="col-md-12">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+          <div class="card-body d-flex flex-column align-items-start">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <h3 class="mb-0">
+              <%= link_to university.name, university %>
+            </h3>
+            <div class="mb-1 text-muted">Nov 12</div>
+            <p class="card-text mb-auto"> knowledge and creativity since 1477. World-class researc</p>
+            <a href="#">Continue reading</a>
+          </div>
+          <%= image_tag "Sweden Ryugaku DB-logo.png", als: "logo", class: "bd-placeholder-img card-img-right flex-auto d-none d-lg-block", width: "250", height: "250"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="card bg-dark text-white">
+    <%= link_to image_tag("uppsala-university-top.png", als: "logo"), root_path%>
+<!--    <img src="" class="card-img" alt="...">-->
+    <div class="card-img-overlay">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text">Last updated 3 mins ago</p>
+    </div>
+  </div>
+</div>
+
+
+
+

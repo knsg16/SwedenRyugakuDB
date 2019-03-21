@@ -27,8 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap-sass', '3.3.7'
-gem 'will_paginate',           '3.1.6'
+gem 'bootstrap', '~> 4.1.1'
+gem 'will_paginate', '~> 3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'nokogiri'
 gem 'jquery-rails'

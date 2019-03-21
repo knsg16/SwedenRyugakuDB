@@ -47,14 +47,15 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (8.1.0.1)
+    autoprefixer-rails (9.4.7)
       execjs
     bindex (0.5.0)
     bootsnap (1.3.0)
       msgpack (~> 1.0)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+    bootstrap (4.1.3)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     bootstrap-will_paginate (1.0.0)
       will_paginate
     bootstrap_form (2.7.0)
@@ -122,6 +123,7 @@ GEM
     nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
     pg (0.20.0)
+    popper_js (1.14.5)
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
@@ -218,7 +220,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap-sass (= 3.3.7)
+  bootstrap (~> 4.1.1)
   bootstrap-will_paginate (= 1.0.0)
   bootstrap_form
   byebug
@@ -244,7 +246,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   whenever
-  will_paginate (= 3.1.6)
+  will_paginate (~> 3.1.6)
 
 RUBY VERSION
    ruby 2.3.7p456
